@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mapas Económicos de Bolivia y Santa Cruz</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .map {
+    height: 520px;
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Mapas de los Sectores Económicos</h1>
+
+<h2>Santa Cruz de la Sierra (Verdes y Grises)</h2>
+<div id="mapSC" class="map"></div>
+
+<h2>Bolivia (Rojos y Vinos)</h2>
+<div id="mapBO" class="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+/// =======================
+/// MAPA SANTA CRUZ
+/// =======================
+
+var mapSC = L.map('mapSC').setView([-17.7833, -63.1821], 11);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapSC);
+
+// ICONOS SANTA CRUZ
+var scPrimario = L.circleMarker([-17.715, -63.058], {
+  radius: 10, color: '#2e7d32', fillColor: '#66bb6a', fillOpacity: 0.8
+}).addTo(mapSC).bindPopup("<b>Sector Primario</b><br>Agricultura – Pailón<br>Base agroexportadora.");
+
+var scSecundario = L.circleMarker([-17.7658, -63.1415], {
+  radius: 10, color: '#424242', fillColor: '#9e9e9e', fillOpacity: 0.8
+}).addTo(mapSC).bindPopup("<b>Sector Secundario</b><br>Parque Industrial<br>Transformación productiva.");
+
+var scTerciario = L.circleMarker([-17.764, -63.197], {
+  radius: 10, color: '#1b5e20', fillColor: '#81c784', fillOpacity: 0.8
+}).addTo(mapSC).bindPopup("<b>Sector Terciario</b><br>Equipetrol<br>Centro financiero.");
+
+var scCuaternario = L.circleMarker([-17.725, -63.200], {
+  radius: 10, color: '#33691e', fillColor: '#aed581', fillOpacity: 0.8
+}).addTo(mapSC).bindPopup("<b>Sector Cuaternario</b><br>Urubó Business Center<br>Tecnología e innovación.");
+
+
+/// =======================
+/// MAPA BOLIVIA
+/// =======================
+
+var mapBO = L.map('mapBO').setView([-16.2902, -63.5887], 6);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapBO);
+
+// ICONOS BOLIVIA
+L.circleMarker([-17.7833, -63.1821], {
+  radius: 10, color: '#7b1c1c', fillColor: '#b71c1c', fillOpacity: 0.8
+}).addTo(mapBO).bindPopup("<b>Santa Cruz</b><br>Motor productivo del país.");
+
+L.circleMarker([-16.5, -68.15], {
+  radius: 10, color: '#880e4f', fillColor: '#ad1457', fillOpacity: 0.8
+}).addTo(mapBO).bindPopup("<b>La Paz</b><br>Centro político y administrativo.");
+
+L.circleMarker([-17.39, -66.16], {
+  radius: 10, color: '#6a1b9a', fillColor: '#8e24aa', fillOpacity: 0.8
+}).addTo(mapBO).bindPopup("<b>Cochabamba</b><br>Producción agrícola y servicios.");
+
+L.circleMarker([-19.03, -65.26], {
+  radius: 10, color: '#4a148c', fillColor: '#7b1fa2', fillOpacity: 0.8
+}).addTo(mapBO).bindPopup("<b>Chuquisaca</b><br>Servicios jurídicos y educación.");
+
+</script>
+</body>
+</html>
